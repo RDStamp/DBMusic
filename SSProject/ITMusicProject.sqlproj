@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ITMusicProject</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{e11b5d78-4f4b-4b60-8dd2-ce2c13a5ae7f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SSProject</RootNamespace>
+    <AssemblyName>SSProject</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Storage\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="DBScripts" />
+    <Folder Include="DBScripts\DummyData" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Song.sql" />
+    <Build Include="dbo\Tables\PlaylistSong.sql" />
+    <Build Include="dbo\Tables\Playlist.sql" />
+    <Build Include="dbo\Tables\PlayHistory.sql" />
+    <Build Include="dbo\Tables\Listener.sql" />
+    <Build Include="dbo\Tables\Artist.sql" />
+    <Build Include="dbo\Tables\Album.sql" />
+    <Build Include="Storage\Music2039.sql" />
+    <Build Include="Storage\Music2038.sql" />
+    <Build Include="Storage\Music2037.sql" />
+    <Build Include="Storage\Music2036.sql" />
+    <Build Include="Storage\Music2035.sql" />
+    <Build Include="Storage\Music2034.sql" />
+    <Build Include="Storage\Music2033.sql" />
+    <Build Include="Storage\Music2032.sql" />
+    <Build Include="Storage\Music2031.sql" />
+    <Build Include="Storage\Music2030.sql" />
+    <Build Include="Storage\Music2029.sql" />
+    <Build Include="Storage\Music2028.sql" />
+    <Build Include="Storage\Music2027.sql" />
+    <Build Include="Storage\Music2026.sql" />
+    <Build Include="Storage\Music2025.sql" />
+    <Build Include="Storage\Music2024.sql" />
+    <Build Include="Storage\Music2023.sql" />
+    <Build Include="Storage\Music2022.sql" />
+    <Build Include="Storage\Music2021.sql" />
+    <Build Include="Storage\Music2020.sql" />
+    <Build Include="Storage\Music2019.sql" />
+    <Build Include="Storage\Music2018.sql" />
+    <Build Include="Storage\Music2017.sql" />
+    <Build Include="Storage\Music2016.sql" />
+    <Build Include="Storage\Music2015.sql" />
+    <Build Include="Storage\Music2014.sql" />
+    <Build Include="Storage\Music2013.sql" />
+    <Build Include="Storage\Music2012.sql" />
+    <Build Include="Storage\Music2011.sql" />
+    <Build Include="Storage\Music2010.sql" />
+    <Build Include="Storage\Music2009.sql" />
+    <Build Include="Storage\Music2008.sql" />
+    <Build Include="Storage\Music2007.sql" />
+    <Build Include="Storage\Music2006.sql" />
+    <Build Include="Storage\Music2005.sql" />
+    <Build Include="Storage\Music2004.sql" />
+    <Build Include="Storage\Music2003.sql" />
+    <Build Include="Storage\Music2002.sql" />
+    <Build Include="Storage\Music2001.sql" />
+    <Build Include="Storage\Music2000.sql" />
+    <Build Include="dbo\Stored Procedures\GetMostPopularSong.sql" />
+    <Build Include="dbo\Stored Procedures\GetMostPopularArtist.sql" />
+    <Build Include="dbo\Stored Procedures\GetListnerCountTotal.sql" />
+    <Build Include="dbo\Stored Procedures\GetListnerCountByYear.sql" />
+    <Build Include="dbo\Stored Procedures\GetListnerCountByMonthForYear.sql" />
+    <Build Include="Storage\DatePartitionFunction.sql" />
+    <Build Include="Storage\PlayHistoryPS.sql" />
+    <Build Include="dbo\Tables\Ganre.sql" />
+    <Build Include="DBScripts\CreateDb.sql" />
+    <Build Include="DBScripts\PopulateTableData.sql" />
+    <Build Include="DBScripts\DummyData\Album.sql" />
+    <Build Include="DBScripts\DummyData\Artist.sql" />
+    <Build Include="DBScripts\DummyData\Ganre.sql" />
+    <Build Include="DBScripts\DummyData\Listener.sql" />
+    <Build Include="DBScripts\DummyData\PlayHistory.sql" />
+    <Build Include="DBScripts\DummyData\Playlist.sql" />
+    <Build Include="DBScripts\DummyData\PlaylistSong.sql" />
+    <Build Include="DBScripts\DummyData\Song.sql" />
+    <Build Include="dbo\Tables\ResetDb.sql" />
+    <Build Include="DBScripts\ResetDb.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Readme.txt" />
+  </ItemGroup>
+</Project>

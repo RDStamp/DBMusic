@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.Dashboard.sa"
+  DTS:DTSID="{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=Dashboard;Integrated Security=True;Encrypt=False;Application Name=SSIS-SSISProject-{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}localhost.Dashboard.sa;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

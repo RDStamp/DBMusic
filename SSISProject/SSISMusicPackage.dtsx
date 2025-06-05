@@ -1,0 +1,1987 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/3/2025 5:55:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHYRONSCHARIOT"
+  DTS:CreatorName="CHYRONSCHARIOT\ChyronsChariot"
+  DTS:DTSID="{08750AB5-4BF4-4643-B8E8-FE8588570487}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="SSISMusicPackage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{D65943F8-0D6B-4388-A1DE-55583CB93E25}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Album Dimension Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{49BBCBF1-1043-482D-A6C6-70E7E613E0BB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Album Dimension Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Album Dimension Task\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."AlbumDim"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Album Dimension Task\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dashboard.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[AlbumId]"
+                      cachedDataType="i4"
+                      cachedName="AlbumId"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AlbumId]"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumId]" />
+                    <inputColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[AlbumName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="AlbumName"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AlbumName]"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumName]" />
+                    <inputColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ReleaseDate]"
+                      cachedDataType="dbDate"
+                      cachedName="ReleaseDate"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ReleaseDate]"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ReleaseDate]" />
+                    <inputColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[RecordLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="RecordLabel"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RecordLabel]"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[RecordLabel]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AlbumId]"
+                      dataType="i4"
+                      name="AlbumId" />
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AlbumName]"
+                      dataType="wstr"
+                      length="100"
+                      name="AlbumName" />
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ReleaseDate]"
+                      dataType="dbTimeStamp"
+                      name="ReleaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RecordLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="RecordLabel" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Album Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Album Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Album Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Album Dimension Task\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [AlbumId]
+      ,[AlbumName]
+      ,[ReleaseDate]
+      ,[RecordLabel]
+  FROM [Music].[dbo].[Album] WITH(NOLOCK)
+  WHERE [DateAdded] &gt; DATEADD("day",-1,GETDATE())</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Album"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Album Dimension Task\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="{F6D5C2AC-50D0-42AE-96C7-737184F1B5E5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Music.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AlbumId]"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumId]"
+                      name="AlbumId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AlbumName]"
+                      length="100"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumName]"
+                      name="AlbumName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ReleaseDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ReleaseDate]"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ReleaseDate]"
+                      name="ReleaseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[RecordLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RecordLabel]"
+                      length="100"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[RecordLabel]"
+                      name="RecordLabel"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AlbumId]"
+                      dataType="i4"
+                      name="AlbumId" />
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AlbumName]"
+                      dataType="wstr"
+                      length="100"
+                      name="AlbumName" />
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ReleaseDate]"
+                      dataType="dbDate"
+                      name="ReleaseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RecordLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="RecordLabel" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AlbumId]"
+                      dataType="i4"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AlbumId]"
+                      name="AlbumId" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AlbumName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AlbumName]"
+                      name="AlbumName" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ReleaseDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ReleaseDate]"
+                      name="ReleaseDate" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RecordLabel]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RecordLabel]"
+                      name="RecordLabel" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Album Dimension Task.Paths[ADO NET Source Output]"
+              endId="Package\Album Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Album Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Artist Dimension Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{4848CD1D-C398-4E8D-B1AB-AAD91FD30856}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Artist Dimension Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Artist Dimension Task\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ArtistDim"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Artist Dimension Task\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dashboard.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ArtistId]"
+                      cachedDataType="i4"
+                      cachedName="ArtistId"
+                      externalMetadataColumnId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ArtistId]"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistId]" />
+                    <inputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ArtistName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ArtistName"
+                      externalMetadataColumnId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ArtistName]"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistName]" />
+                    <inputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[AgentName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="AgentName"
+                      externalMetadataColumnId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AgentName]"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ArtistId]"
+                      dataType="i4"
+                      name="ArtistId" />
+                    <externalMetadataColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ArtistName]"
+                      dataType="wstr"
+                      length="100"
+                      name="ArtistName" />
+                    <externalMetadataColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AgentName]"
+                      dataType="wstr"
+                      length="100"
+                      name="AgentName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Artist Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Artist Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Artist Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Artist Dimension Task\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ArtistId]
+      ,[ArtistName]
+      ,[AgentName]
+  FROM [Music].[dbo].[Artist]   WITH(NOLOCK)
+WHERE [DateAdded] &gt; DATEADD("day",-1,GETDATE())</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Artist"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Artist Dimension Task\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="{F6D5C2AC-50D0-42AE-96C7-737184F1B5E5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Music.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ArtistId]"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistId]"
+                      name="ArtistId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ArtistName]"
+                      length="100"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistName]"
+                      name="ArtistName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AgentName]"
+                      length="100"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentName]"
+                      name="AgentName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ArtistId]"
+                      dataType="i4"
+                      name="ArtistId" />
+                    <externalMetadataColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ArtistName]"
+                      dataType="wstr"
+                      length="100"
+                      name="ArtistName" />
+                    <externalMetadataColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AgentName]"
+                      dataType="wstr"
+                      length="100"
+                      name="AgentName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ArtistId]"
+                      dataType="i4"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ArtistId]"
+                      name="ArtistId" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ArtistName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ArtistName]"
+                      name="ArtistName" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AgentName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AgentName]"
+                      name="AgentName" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Artist Dimension Task.Paths[ADO NET Source Output]"
+              endId="Package\Artist Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Artist Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ganre Dimension Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FDDA9348-162D-4E5E-980B-E9A4653F8811}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ganre Dimension Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Ganre Dimension Task\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."GanreDim"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ganre Dimension Task\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dashboard.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[GanreId]"
+                      cachedDataType="i4"
+                      cachedName="GanreId"
+                      externalMetadataColumnId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[GanreId]"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreId]" />
+                    <inputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[GanreName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="GanreName"
+                      externalMetadataColumnId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[GanreName]"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[GanreId]"
+                      dataType="i4"
+                      name="GanreId" />
+                    <externalMetadataColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[GanreName]"
+                      dataType="wstr"
+                      length="100"
+                      name="GanreName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Ganre Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Ganre Dimension Task\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [GanreId]
+      ,[GanreName]
+  FROM [Music].[dbo].[Ganre] WITH(NOLOCK)
+   WHERE [DateAdded] &gt; DATEADD("day",-1,GETDATE())</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Ganre Dimension Task\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="{F6D5C2AC-50D0-42AE-96C7-737184F1B5E5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Music.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[GanreId]"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreId]"
+                      name="GanreId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[GanreName]"
+                      length="100"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreName]"
+                      name="GanreName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[GanreId]"
+                      dataType="i4"
+                      name="GanreId" />
+                    <externalMetadataColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[GanreName]"
+                      dataType="wstr"
+                      length="100"
+                      name="GanreName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[GanreId]"
+                      dataType="i4"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[GanreId]"
+                      name="GanreId" />
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[GanreName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[GanreName]"
+                      name="GanreName" />
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Ganre Dimension Task.Paths[ADO NET Source Output]"
+              endId="Package\Ganre Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Ganre Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Listener Dimension Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A9075751-666D-41E5-95FF-34079207D27B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Listener Dimension Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Listener Dimension Task\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ListenerDim"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Listener Dimension Task\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dashboard.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ListenerId]"
+                      cachedDataType="i4"
+                      cachedName="ListenerId"
+                      externalMetadataColumnId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ListenerId]"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerId]" />
+                    <inputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ListenerName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ListenerName"
+                      externalMetadataColumnId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ListenerName]"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerName]" />
+                    <inputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[RegistrationDate]"
+                      cachedDataType="dbDate"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[RegistrationDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ListenerId]"
+                      dataType="i4"
+                      name="ListenerId" />
+                    <externalMetadataColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ListenerName]"
+                      dataType="wstr"
+                      length="100"
+                      name="ListenerName" />
+                    <externalMetadataColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="dbTimeStamp"
+                      name="RegistrationDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Listener Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Listener Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Listener Dimension Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Listener Dimension Task\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ListenerId] ,[ListenerName], [RegistrationDate]
+  FROM [Music].[dbo].[Listener] WITH(NOLOCK)
+   WHERE [RegistrationDate]&gt; DATEADD("day",-1,GETDATE())</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Listener"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Listener Dimension Task\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="{F6D5C2AC-50D0-42AE-96C7-737184F1B5E5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Music.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ListenerId]"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerId]"
+                      name="ListenerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ListenerName]"
+                      length="100"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerName]"
+                      name="ListenerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[RegistrationDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ListenerId]"
+                      dataType="i4"
+                      name="ListenerId" />
+                    <externalMetadataColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ListenerName]"
+                      dataType="wstr"
+                      length="100"
+                      name="ListenerName" />
+                    <externalMetadataColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="dbDate"
+                      name="RegistrationDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ListenerId]"
+                      dataType="i4"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ListenerId]"
+                      name="ListenerId" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ListenerName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ListenerName]"
+                      name="ListenerName" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RegistrationDate]"
+                      dataType="dbDate"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Listener Dimension Task.Paths[ADO NET Source Output]"
+              endId="Package\Listener Dimension Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Listener Dimension Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Referance Data Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DD5E32A5-3F33-4591-AC68-784B8AC760A4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Referance Data Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Referance Data Task\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."FactData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Referance Data Task\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="{D3A477D6-11FD-4CC2-8AB9-D539D6EB75BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dashboard.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SongId]"
+                      cachedDataType="i4"
+                      cachedName="SongId"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SongId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[SongId]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SongName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SongName"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SongName]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[SongName]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[AlbumId]"
+                      cachedDataType="i4"
+                      cachedName="AlbumId"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AlbumId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumId]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ArtistId]"
+                      cachedDataType="i4"
+                      cachedName="ArtistId"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ArtistId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistId]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[GanreId]"
+                      cachedDataType="i4"
+                      cachedName="GanreId"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[GanreId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreId]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ListenerId]"
+                      cachedDataType="i4"
+                      cachedName="ListenerId"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ListenerId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerId]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[PlayDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PlayDate"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlayDate]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[PlayDate]" />
+                    <inputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[PlayDay]"
+                      cachedDataType="dbDate"
+                      cachedName="PlayDay"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlayDay]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[PlayDay]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SongId]"
+                      dataType="i4"
+                      name="SongId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SongName]"
+                      dataType="wstr"
+                      length="100"
+                      name="SongName" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[AlbumId]"
+                      dataType="i4"
+                      name="AlbumId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ArtistId]"
+                      dataType="i4"
+                      name="ArtistId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[GanreId]"
+                      dataType="i4"
+                      name="GanreId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ListenerId]"
+                      dataType="i4"
+                      name="ListenerId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlayDate]"
+                      dataType="dbTimeStamp"
+                      name="PlayDate" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlayDay]"
+                      dataType="dbTimeStamp"
+                      name="PlayDay" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Referance Data Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Referance Data Task\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+	so.[SongId], so.[SongName], al.[AlbumId], ar.[ArtistId], ge.[GanreId], li.[ListenerId], ph.[PlayDate], CONVERT(DATE, ph.[PlayDate]) PlayDay
+FROM
+	[dbo].[PlayHistory] ph WITH(NOLOCK) 
+	JOIN [dbo].[Listener] li WITH(NOLOCK) on ph.[ListenerId] = li.[ListenerId]
+	JOIN [dbo].[Song] so WITH(NOLOCK) on ph.[SongId]  = so.[SongId]
+	JOIN [dbo].[Album] al WITH(NOLOCK) on so.[AlbumId]  = al.[AlbumId]
+	JOIN [dbo].[Artist] ar WITH(NOLOCK) on so.[ArtistId] = ar.[ArtistId]
+	JOIN [dbo].[Ganre] ge WITH(NOLOCK) on so.[GanreId] = ge.[GanreId]
+WHERE
+	ph.[DateAdded] &gt; DATEADD(day,-1,GETDATE())</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Referance Data Task\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="{F6D5C2AC-50D0-42AE-96C7-737184F1B5E5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Music.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[SongId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SongId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[SongId]"
+                      name="SongId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[SongName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SongName]"
+                      length="100"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[SongName]"
+                      name="SongName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AlbumId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[AlbumId]"
+                      name="AlbumId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ArtistId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ArtistId]"
+                      name="ArtistId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[GanreId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[GanreId]"
+                      name="GanreId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ListenerId]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[ListenerId]"
+                      name="ListenerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[PlayDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PlayDate]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[PlayDate]"
+                      name="PlayDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[PlayDay]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PlayDay]"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[PlayDay]"
+                      name="PlayDay"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SongId]"
+                      dataType="i4"
+                      name="SongId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SongName]"
+                      dataType="wstr"
+                      length="100"
+                      name="SongName" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AlbumId]"
+                      dataType="i4"
+                      name="AlbumId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ArtistId]"
+                      dataType="i4"
+                      name="ArtistId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[GanreId]"
+                      dataType="i4"
+                      name="GanreId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ListenerId]"
+                      dataType="i4"
+                      name="ListenerId" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PlayDate]"
+                      dataType="dbTimeStamp"
+                      name="PlayDate" />
+                    <externalMetadataColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[PlayDay]"
+                      dataType="dbDate"
+                      name="PlayDay" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SongId]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SongId]"
+                      name="SongId" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SongName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SongName]"
+                      name="SongName" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AlbumId]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AlbumId]"
+                      name="AlbumId" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ArtistId]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ArtistId]"
+                      name="ArtistId" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[GanreId]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[GanreId]"
+                      name="GanreId" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ListenerId]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ListenerId]"
+                      name="ListenerId" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PlayDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PlayDate]"
+                      name="PlayDate" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PlayDay]"
+                      dataType="dbDate"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[PlayDay]"
+                      name="PlayDay" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Referance Data Task.Paths[ADO NET Source Output]"
+              endId="Package\Referance Data Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Referance Data Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{07CC5BCC-254A-4C5B-90BE-89511007ABD9}"
+      DTS:From="Package\Album Dimension Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Artist Dimension Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{976B66CC-F6EF-4029-A926-7E28911901FD}"
+      DTS:From="Package\Artist Dimension Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Listener Dimension Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A4280DB1-F47C-4100-A5DD-BFA170F8EADE}"
+      DTS:From="Package\Listener Dimension Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Ganre Dimension Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{10F62F01-6555-4CDD-8E91-D97797A20DEE}"
+      DTS:From="Package\Ganre Dimension Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Referance Data Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Album Dimension Task"
+          TopLeft="53,45" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Artist Dimension Task"
+          TopLeft="49,129" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Ganre Dimension Task"
+          TopLeft="48,296" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Listener Dimension Task"
+          TopLeft="46,211" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Referance Data Task"
+          TopLeft="52,391" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="145.5,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="144,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="144.75,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="143.5,338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Album Dimension Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Album Dimension Task\ADO NET Source"
+          TopLeft="54,45" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Album Dimension Task\ADO NET Destination"
+          TopLeft="46,414" />
+        <EdgeLayout
+          Id="Package\Album Dimension Task.Paths[ADO NET Source Output]"
+          TopLeft="138,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,327"
+              Start="0,0"
+              End="0,319.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,319.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Album Dimension Task\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Album Dimension Task\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Artist Dimension Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Artist Dimension Task\ADO NET Source"
+          TopLeft="45,33" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Artist Dimension Task\ADO NET Destination"
+          TopLeft="40,188" />
+        <EdgeLayout
+          Id="Package\Artist Dimension Task.Paths[ADO NET Source Output]"
+          TopLeft="130.5,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,113"
+              Start="0,0"
+              End="0,105.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,105.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Artist Dimension Task\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Artist Dimension Task\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Ganre Dimension Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Ganre Dimension Task\ADO NET Source"
+          TopLeft="61,32" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Ganre Dimension Task\ADO NET Destination"
+          TopLeft="47,185" />
+        <EdgeLayout
+          Id="Package\Ganre Dimension Task.Paths[ADO NET Source Output]"
+          TopLeft="142,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,111"
+              Start="0,0"
+              End="0,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ganre Dimension Task\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Ganre Dimension Task\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Listener Dimension Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Listener Dimension Task\ADO NET Source"
+          TopLeft="35.5,2.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Listener Dimension Task\ADO NET Destination"
+          TopLeft="29,143" />
+        <EdgeLayout
+          Id="Package\Listener Dimension Task.Paths[ADO NET Source Output]"
+          TopLeft="120.25,44.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,98.5"
+              Start="0,0"
+              End="0,91">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Listener Dimension Task\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Listener Dimension Task\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Referance Data Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Referance Data Task\ADO NET Source"
+          TopLeft="91,23" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Referance Data Task\ADO NET Destination"
+          TopLeft="87,147" />
+        <EdgeLayout
+          Id="Package\Referance Data Task.Paths[ADO NET Source Output]"
+          TopLeft="177,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82"
+              Start="0,0"
+              End="0,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Referance Data Task\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Referance Data Task\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

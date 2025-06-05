@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.Music.sa"
+  DTS:DTSID="{0933523F-2DD3-46A2-8A42-FCCF61918E2C}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=Music;Integrated Security=True;Encrypt=False;Application Name=SSIS-SSISProject-{0933523F-2DD3-46A2-8A42-FCCF61918E2C}localhost.Music.sa;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
