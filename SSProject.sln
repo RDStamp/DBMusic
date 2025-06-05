@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36127.28
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ITMusicProject", "SSProject\ITMusicProject.sqlproj", "{E11B5D78-4F4B-4B60-8DD2-CE2C13A5AE7F}"
-EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ITReportProject", "SSReport\ITReportProject.sqlproj", "{3AE84A14-0D6A-40A5-8C59-0F774149E506}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ITMusicProject", "ITMusicProject\ITMusicProject.sqlproj", "{E11B5D78-4F4B-4B60-8DD2-CE2C13A5AE7F}"
 EndProject
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSISProject", "SSISProject\SSISProject.dtproj", "{06FDF13A-179D-BD6C-332E-72E15C19591B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ITDashboardProject", "ITDashboardProject\ITDashboardProject.sqlproj", "{3AE84A14-0D6A-40A5-8C59-0F774149E506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +25,12 @@ Global
 		{E11B5D78-4F4B-4B60-8DD2-CE2C13A5AE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E11B5D78-4F4B-4B60-8DD2-CE2C13A5AE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E11B5D78-4F4B-4B60-8DD2-CE2C13A5AE7F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Debug|Any CPU.ActiveCfg = Development
+		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Debug|Any CPU.Build.0 = Development
+		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Development|Any CPU.ActiveCfg = Development
+		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Development|Any CPU.Build.0 = Development
+		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Release|Any CPU.ActiveCfg = Development
+		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Release|Any CPU.Build.0 = Development
 		{3AE84A14-0D6A-40A5-8C59-0F774149E506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3AE84A14-0D6A-40A5-8C59-0F774149E506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE84A14-0D6A-40A5-8C59-0F774149E506}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -34,12 +40,6 @@ Global
 		{3AE84A14-0D6A-40A5-8C59-0F774149E506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE84A14-0D6A-40A5-8C59-0F774149E506}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AE84A14-0D6A-40A5-8C59-0F774149E506}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Debug|Any CPU.ActiveCfg = Development
-		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Debug|Any CPU.Build.0 = Development
-		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Development|Any CPU.ActiveCfg = Development
-		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Development|Any CPU.Build.0 = Development
-		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Release|Any CPU.ActiveCfg = Development
-		{06FDF13A-179D-BD6C-332E-72E15C19591B}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
