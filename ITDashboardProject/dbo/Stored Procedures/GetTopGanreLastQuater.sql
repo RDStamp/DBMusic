@@ -7,6 +7,8 @@
 CREATE PROCEDURE [dbo].[GetTopGanreLastQuater] @BaseDate Date
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	DECLARE @StartDate DATETIME = DATEADD(quarter, DATEDIFF(quarter, 0, @BaseDate) - 1, 0);
 	DECLARE @EndDate DATETIME = DATEADD(day, -1, DATEADD(quarter, DATEDIFF(quarter, 0, @BaseDate), 0));
 

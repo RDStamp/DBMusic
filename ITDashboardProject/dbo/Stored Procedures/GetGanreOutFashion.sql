@@ -7,6 +7,8 @@
 CREATE PROCEDURE [dbo].[GetGanreOutFashion] @EndDate Date
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	DECLARE @StartDate DATETIME = DATEADD(month, -7, @EndDate);
 	DECLARE @MidDate DATETIME = DATEADD(month, -1, @EndDate);
 

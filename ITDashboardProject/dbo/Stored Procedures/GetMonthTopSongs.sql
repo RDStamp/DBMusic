@@ -7,6 +7,8 @@
 CREATE PROCEDURE [dbo].[GetMonthTopSongs] @EndDate Date
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	DECLARE @StartDate DATETIME = DATEADD(year, -1, @EndDate)
 
 	SELECT

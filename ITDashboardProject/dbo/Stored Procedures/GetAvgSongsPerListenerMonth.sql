@@ -6,6 +6,8 @@
 CREATE PROCEDURE GetAvgSongsPerListenerMonth
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	SELECT
 		rset2.[YearNumber], rset2.[MonthName], rset2.[PlayCount]/rset3.[ListenerCount] AvgPlayCount
 	FROM

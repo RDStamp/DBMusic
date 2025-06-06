@@ -7,6 +7,8 @@
 CREATE PROCEDURE [dbo].[GetTopGanre]
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	SELECT
 		TOP 3 gd.[GanreName], COUNT(ft.[Id]) TotalPlayCount
 	FROM

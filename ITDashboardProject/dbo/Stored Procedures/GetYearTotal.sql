@@ -8,6 +8,8 @@ CREATE PROCEDURE [dbo].[GetYearTotal] @EndDate Date
 	
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	DECLARE @StartDate DATETIME = DATEADD(year, -1, @EndDate)
 
 	SELECT

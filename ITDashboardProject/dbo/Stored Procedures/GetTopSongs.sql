@@ -7,6 +7,8 @@
 CREATE PROCEDURE [dbo].[GetTopSongs]
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	SELECT
 		TOP 5 ft.[SongName], COUNT(ft.[Id]) TotalPlayCount
 	FROM

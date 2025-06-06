@@ -6,6 +6,8 @@
 CREATE PROCEDURE [dbo].[GetTopListenersArtists]
 AS
 BEGIN
+	SET NOCOUNT ON;
+
 	SELECT
 		DISTINCT ld.[ListenerName], ad.[ArtistName]
 	FROM
