@@ -1,14 +1,17 @@
 USE [Music]
 GO
 
-DBCC CHECKIDENT ('Song', RESEED, 0);
-
 DELETE FROM [dbo].[Song];
 
+DBCC CHECKIDENT ('Song', RESEED, 0);
+
+/****** Object:  Database [Music].[dbo].[Song] ******/
+DECLARE @Song INT = 0;
 DECLARE @Album INT = 0;
 DECLARE @Artist INT = 0;
-DECLARE @Song INT = 1;
 DECLARE @Ganre INT = 0;
+DECLARE @GanreSelect INT = 0;
+
 DECLARE @AlbumMax INT = 0;
 DECLARE @ArtistMax INT = 0;
 DECLARE @GanreMax INT = 0;
@@ -29,10 +32,18 @@ BEGIN
             SELECT @Artist = [ArtistId] from [dbo].[Artist] WITH(NOLOCK) where [ArtistId] =  FLOOR(RAND() * @ArtistMax);
         END;
 
-    WHILE  @Ganre = 0
+    WHILE  @GanreSelect = 0
         BEGIN
-            SELECT @Ganre = [GanreId] from [dbo].[Ganre] WITH(NOLOCK) where [GanreId] =  FLOOR(RAND() * @GanreMax);
+            SELECT @GanreSelect = CASE 
+                WHEN @Ganre < @GanreMax THEN @Ganre + 1 
+                WHEN @Ganre = @GanreMax THEN 1 
+                ELSE 1 
+            END 
+            FROM [dbo].[Ganre] WITH(NOLOCK) where [GanreId] =  FLOOR(RAND() * (SELECT  MAX([GanreId]) FROM [dbo].[Ganre] WITH(NOLOCK)));
         END;
+
+    SET @Ganre = @GanreSelect;
+    SET @GanreSelect = 0;
 
     INSERT INTO [dbo].[Song]
         (

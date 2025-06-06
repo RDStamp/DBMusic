@@ -131,6 +131,7 @@
     <Build Include="DBScripts\DummyData\Song.sql" />
     <Build Include="dbo\Tables\ResetDb.sql" />
     <Build Include="DBScripts\ResetDb.sql" />
+    <Build Include="dbo\Tables\Rating.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Readme.txt" />

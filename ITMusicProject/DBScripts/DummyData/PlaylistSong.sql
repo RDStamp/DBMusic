@@ -3,6 +3,7 @@ GO
 
 DELETE FROM [dbo].[PlaylistSong];
 
+/****** Object:  Database [Music].[dbo].[PlaylistSong] ******/
 DECLARE @Playlist INT = 0;
 DECLARE @PlaylistMax INT = 0;
 DECLARE @Song INT = 0;

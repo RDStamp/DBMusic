@@ -1,10 +1,12 @@
 USE [Music]
 GO
 
-DBCC CHECKIDENT ('Artist', RESEED, 0);
-
 DELETE FROM [dbo].[Artist];
 
+DBCC CHECKIDENT ('Artist', RESEED, 0);
+
+
+/****** Object:  Database [Music].[dbo].[Artist] ******/
 DECLARE @Artist INT = 1;
 
 WHILE @Artist < (FLOOR(RAND() * 10) + 5)

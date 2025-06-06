@@ -5,6 +5,7 @@ DELETE FROM [dbo].[Playlist];
 
 DBCC CHECKIDENT ('Playlist', RESEED, 0);
 
+/****** Object:  Database [Music].[dbo].[Playlist] ******/
 DECLARE @Listener INT = 0;
 DECLARE @ListenerMax INT = 0;
 DECLARE @Playlist INT = 1;

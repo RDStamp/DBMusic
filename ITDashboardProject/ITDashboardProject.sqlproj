@@ -79,6 +79,7 @@
     <Build Include="dbo\Stored Procedures\GetMonthTopSongs.sql" />
     <Build Include="dbo\Stored Procedures\GetGanreOutFashion.sql" />
     <Build Include="dbo\Stored Procedures\GetAvgSongsPerListenerMonth.sql" />
+    <Build Include="dbo\Tables\RatingDim.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Readme.txt" />
